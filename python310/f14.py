@@ -110,93 +110,93 @@
 # 用r+ 则既可以读也可以写
 
 
-def bubble_sort(arr):
-    n = len(arr)
-    # 遍历数组
-    for i in range(n):
-        # 每一轮遍历后，最后 i 个元素已经排好序了，不需要再比较
-        for j in range(0, n - i - 1):
-            # 如果前一个元素比后一个元素大，则交换它们的位置
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    return arr
-
-
-# 测试
-arr = [64, 34, 25, 12, 22, 11, 90]
-print(list(bubble_sort(arr)))
-print("排序后的数组：")
-for i in range(len(arr)):
-    print("%d" % arr[i])
-
-
-lst = [1, 2, 3, 4, 5]
-
-print(list(map(lambda a: a + 100, lst)))      # 对可迭代对象中的每一个元素应用相同的函数,将其返回值作为结果的一个元素,最终返回一个迭代器对象
-print(list(filter(lambda a: a > 1, lst)))    # 过滤
-
-lst2 = []
-
-for i in filter(lambda a: a > 1, lst):  # map\filter函数返回的为迭代器对象,需转换为list或是使用for循环遍历迭代器对象
-    lst2.append(i)
-print(lst2)
-
-
-def getinfo(func):
-    def inner():
-        print("---第一行---")
-        func()
-
-    return inner
-
-
-@getinfo
-def f1():
-    print("---可能是第二条---")
-
-
-@getinfo
-def f2():
-    print("---也可能是第二条---")
-
-
-if __name__ == '__main__':
-    f2()
-
-
-from collections.abc import Iterable
-
-print(isinstance('ABC', Iterable))  # True
-print(isinstance({"name": "jack", "age": 18}, Iterable))  # True
-print(isinstance([1, 2, 3], Iterable))  # True
-print(isinstance(123, Iterable))  # False
-
-
-def findMinAndMax(L):
-    lenl = len(L)
-    if L == "":
-        return None, None
-    if lenl == 1:
-        return L[0], L[0]
-    max1 = min1 = L[0]
-    for i in range(lenl):
-        if L[i] > max1:
-            max1 = L[i]
-        elif L[i] < min1:
-            min1 = L[i]
-    return max1, min1
-
-
-if __name__ == '__main__':
-    L = [1, 4, 6, 4, 5, 6, 9, 0, 3]
-    print(findMinAndMax(L))
-
-L1 = ['Hello', 'World', 18, 'Apple', None]
-L2 = [l1.lower() for l1 in L1 if type(l1) == str]
-
-if __name__ == '__main__':
-    print(L2)
-    if L2 == ['hello', 'world', 'apple']:
-        print('测试通过!')
-    else:
-        print('测试失败!')
+# def bubble_sort(arr):
+#     n = len(arr)
+#     # 遍历数组
+#     for i in range(n):
+#         # 每一轮遍历后，最后 i 个元素已经排好序了，不需要再比较
+#         for j in range(0, n - i - 1):
+#             # 如果前一个元素比后一个元素大，则交换它们的位置
+#             if arr[j] > arr[j + 1]:
+#                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+#     return arr
+#
+#
+# # 测试
+# arr = [64, 34, 25, 12, 22, 11, 90]
+# print(list(bubble_sort(arr)))
+# print("排序后的数组：")
+# for i in range(len(arr)):
+#     print("%d" % arr[i])
+#
+#
+# lst = [1, 2, 3, 4, 5]
+#
+# print(list(map(lambda a: a + 100, lst)))      # 对可迭代对象中的每一个元素应用相同的函数,将其返回值作为结果的一个元素,最终返回一个迭代器对象
+# print(list(filter(lambda a: a > 1, lst)))    # 过滤
+#
+# lst2 = []
+#
+# for i in filter(lambda a: a > 1, lst):  # map\filter函数返回的为迭代器对象,需转换为list或是使用for循环遍历迭代器对象
+#     lst2.append(i)
+# print(lst2)
+#
+#
+# def getinfo(func):
+#     def inner():
+#         print("---第一行---")
+#         func()
+#
+#     return inner
+#
+#
+# @getinfo
+# def f1():
+#     print("---可能是第二条---")
+#
+#
+# @getinfo
+# def f2():
+#     print("---也可能是第二条---")
+#
+#
+# if __name__ == '__main__':
+#     f2()
+#
+#
+# from collections.abc import Iterable
+#
+# print(isinstance('ABC', Iterable))  # True
+# print(isinstance({"name": "jack", "age": 18}, Iterable))  # True
+# print(isinstance([1, 2, 3], Iterable))  # True
+# print(isinstance(123, Iterable))  # False
+#
+#
+# def findMinAndMax(L):
+#     lenl = len(L)
+#     if L == "":
+#         return None, None
+#     if lenl == 1:
+#         return L[0], L[0]
+#     max1 = min1 = L[0]
+#     for i in range(lenl):
+#         if L[i] > max1:
+#             max1 = L[i]
+#         elif L[i] < min1:
+#             min1 = L[i]
+#     return max1, min1
+#
+#
+# if __name__ == '__main__':
+#     L = [1, 4, 6, 4, 5, 6, 9, 0, 3]
+#     print(findMinAndMax(L))
+#
+# L1 = ['Hello', 'World', 18, 'Apple', None]
+# L2 = [l1.lower() for l1 in L1 if type(l1) == str]
+#
+# if __name__ == '__main__':
+#     print(L2)
+#     if L2 == ['hello', 'world', 'apple']:
+#         print('测试通过!')
+#     else:
+#         print('测试失败!')
